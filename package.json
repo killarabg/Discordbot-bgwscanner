@@ -1,17 +1,22 @@
 {
-  "name": "glitch-hello-node",
-  "version": "0.1.0",
-  "description": "A simple Node app built on fastify, instantly up and running. Built to be remixed on Glitch.com.",
-  "main": "server.js",
+  "name": "my-combined-project",
+  "version": "1.0.0",
+  "description": "A combined Node app with Fastify and a Discord bot for scanning Lua scripts for malicious code",
+  "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "start-bot": "node index.js"
   },
   "dependencies": {
-    "fastify": "^4.21.0",
-    "handlebars": "^4.7.8",
     "@fastify/formbody": "^7.4.0",
     "@fastify/static": "^6.10.2",
-    "@fastify/view": "^8.0.0"
+    "@fastify/view": "^8.0.0",
+    "discord.js": "^14.16.3",
+    "fastify": "^4.21.0",
+    "fs": "^0.0.1-security",
+    "glob": "^9.3.5",
+    "handlebars": "^4.7.8",
+    "https": "^1.0.0"
   },
   "engines": {
     "node": "14.x"
@@ -22,20 +27,9 @@
   "license": "MIT",
   "keywords": [
     "node",
-    "glitch"
+    "glitch",
+    "discord",
+    "bot",
+    "scanner"
   ]
-}
-{
-  "name": "discord-malware-scanner-bot",
-  "version": "1.0.0",
-  "description": "Discord bot for scanning Lua scripts for malicious code",
-  "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
-  "dependencies": {
-    "discord.js": "^14.16.3",
-    "fs": "^0.0.1-security",
-    "https": "^1.0.0"
-  }
 }
