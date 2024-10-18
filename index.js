@@ -1,11 +1,12 @@
 const { Client, GatewayIntentBits } = require('discord.js');
 const fs = require('fs');
 const https = require('https');
+require('dotenv').config();  // Това е важно за зареждане на токена от .env
 
 // Създаваме нов Discord клиент
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent] });
 
-const token = process.env.DISCORD_BOT_TOKEN; // Тук токенът ще се чете от .env файл
+const token = process.env.DISCORD_BOT_TOKEN; // Четене на токена от .env файл
 
 // Проверка за зловреден код в Lua файл
 const scanForMalware = (filePath) => {
@@ -28,6 +29,7 @@ const scanForMalware = (filePath) => {
     return results.filter(result => result.found);
 };
 
+// Съобщение за стартиране на бота
 client.once('ready', () => {
     console.log(`Bot is online as ${client.user.tag}`);
 });
@@ -62,4 +64,4 @@ client.on('messageCreate', async (message) => {
     }
 });
 
-client.login('MTI5NjY1NzQ2NTc4NTcxNjgyNg.GoZwKB.N3q1HdnrmAVdLGKVbPqgFeUqgjkzviOUaE0JkE');
+client.login(token);  // Стартиране на бота с токена от .env
